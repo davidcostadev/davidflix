@@ -10,8 +10,8 @@ Rails.application.routes.draw do
       resources :series, only: :show
       resources :movies, only: :show do
         member do
-          get '/executions', to: 'executions#show',
-          put '/executions', to: 'executions#update',
+          get '/executions', to: 'executions#show'
+          put '/executions', to: 'executions#update'
         end
       end
       resources :recommendations, only: :index

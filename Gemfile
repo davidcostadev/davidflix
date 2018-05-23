@@ -6,6 +6,8 @@ ruby '2.4.1'
 gem 'devise'
 gem 'fast_jsonapi'
 
+gem 'aws-sdk-s3'
+
 gem 'pg_search'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'

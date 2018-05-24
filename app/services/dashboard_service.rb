@@ -1,4 +1,5 @@
-class DashaboardService
+class DashboardService
+
   def initialize(type, user)
     @type = type
     @user = user
@@ -9,6 +10,7 @@ class DashaboardService
   end
 
   private
+
     def group_by_category
       categories = Category.includes(:movies, :series)
       Api::V1::CategorySerializer.new(categories)
@@ -22,6 +24,6 @@ class DashaboardService
     def group_by_highlight
       highlight = Movie.find_by(highlighted: true)
       highlight ||= Serie.find_by(highlighted: true)
-      Api::V1::WatchableSerializer(highlight, params: { user: @user })
+      Api::V1::WatchableSerializer.new(highlight, params: { user: @user })
     end
 end

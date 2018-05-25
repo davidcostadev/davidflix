@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_21_172217) do
+ActiveRecord::Schema.define(version: 2018_05_19_173759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "fuzzystrmatch"
@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 2018_05_21_172217) do
   end
 
   create_table "movies", force: :cascade do |t|
+    t.boolean "highlighted", default: false
     t.string "title"
     t.text "description"
-    t.boolean "highlighted", default: true
     t.string "thumbnail_key"
     t.string "video_key"
     t.integer "episode_number"
@@ -84,9 +84,9 @@ ActiveRecord::Schema.define(version: 2018_05_21_172217) do
   end
 
   create_table "series", force: :cascade do |t|
+    t.boolean "highlighted", default: false
     t.string "title"
     t.text "description"
-    t.boolean "highlighted", default: true
     t.string "thumbnail_key"
     t.bigint "category_id"
     t.string "featured_thumbnail_key"

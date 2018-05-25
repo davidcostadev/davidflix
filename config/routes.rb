@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
+  root :to => "home#index"
+
   namespace :api do
     namespace :v1 do
-      get 'dashboards', to: 'dashboards#index', as: :dashboard
-      resources :favorites, path: 'my_list', only: %i( index create )
+      get '/dashboard', to: 'dashboards#index', as: 'dashboard'
+      resources :favorites, path: "my_list", only: %i( index create )
       delete '/my_list/:type/:id', to: 'favorites#destroy'
       resources :reviews, only: [:index, :create]
-      resources :searches, path: 'search', only: :index
+      resources :searches, path: "search", only: :index
       resources :series, only: :show
       resources :movies, only: :show do
         member do
@@ -17,5 +19,4 @@ Rails.application.routes.draw do
       resources :recommendations, only: :index
     end
   end
-  root to: 'home#index'
 end

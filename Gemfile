@@ -9,6 +9,7 @@ gem 'fast_jsonapi'
 gem 'aws-sdk-s3'
 
 gem 'webpacker'
+gem 'foreman'
 
 gem 'pg_search'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
